@@ -1,0 +1,7 @@
+mode: set
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:12.34,14.2 1 1
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:16.54,21.2 1 1
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:27.32,29.2 1 1
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:31.37,35.2 1 1
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:42.35,44.2 1 1
+github.com/ramamimu/go-everything/1-testable-code/interface-implementation/shape.go:46.55,51.2 1 1
