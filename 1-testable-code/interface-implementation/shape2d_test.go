@@ -24,6 +24,12 @@ func TestTriangleCalculation(t *testing.T) {
 	}
 }
 
+func TestTriangleReturnShapeType(t *testing.T) {
+	triangle := shape.NewTriangle(0, 0)
+	shapeType := triangle.Type()
+	assert.Equalf(t, shapeType, shape.TriangleShape, "Expected %d but got %d", shape.TriangleShape, shapeType)
+}
+
 func TestSquareDataType(t *testing.T) {
 	squareShape := shape.NewSquare(9)
 
@@ -38,6 +44,12 @@ func TestSquareCalculation(t *testing.T) {
 	assert.Equalf(t, float32(81), area, "Expected 81 but got %f", area)
 }
 
+func TestSquareShapeType(t *testing.T) {
+	square := shape.NewSquare(0)
+	shapeType := square.Type()
+	assert.Equalf(t, shapeType, shape.SquareShape, "Expected %d but got %d", shape.SquareShape, shapeType)
+}
+
 func TestRectangleDataType(t *testing.T) {
 	rectangleShape := shape.NewRectangle(2, 4)
 	rectangle, ok := rectangleShape.(shape.Rectangle)
@@ -48,4 +60,10 @@ func TestRectangleCalculation(t *testing.T) {
 	rectangle := shape.NewRectangle(3, 5)
 	area := rectangle.Area()
 	assert.Equal(t, float32(15), area, "Expected 15 but got %f", area)
+}
+
+func TestRectangleShapeType(t *testing.T) {
+	rectangle := shape.NewRectangle(0, 0)
+	shapeType := rectangle.Type()
+	assert.Equalf(t, shapeType, shape.RectangleShape, "Expected %d but got %d", shape.RectangleShape, shapeType)
 }
