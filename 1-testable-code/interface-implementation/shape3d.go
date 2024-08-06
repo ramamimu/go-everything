@@ -3,21 +3,20 @@ package shape
 
 type Shape3D interface {
 	SurfaceArea() float32
-	// Volume() float32
 }
 
 type Cube struct {
-	rectangle RectangleShape2D
+	square SquareShape2D
 }
 
-func NewCube(r RectangleShape2D) Shape3D {
+func NewCube(s SquareShape2D) Shape3D {
 	return &Cube{
-		rectangle: r,
+		square: s,
 	}
 }
 
 func (c Cube) SurfaceArea() float32 {
-	return 6 * c.rectangle.Area()
+	return 6 * c.square.Area()
 }
 
 type TringularPrism struct {

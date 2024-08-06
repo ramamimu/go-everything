@@ -26,7 +26,7 @@ func TestTriangleCalculation(t *testing.T) {
 
 func TestTriangleReturnShapeType(t *testing.T) {
 	triangle := shape.NewTriangle(0, 0)
-	shapeType := triangle.Type()
+	shapeType := triangle.TriangleType()
 	assert.Equalf(t, shapeType, shape.TriangleShape, "Expected %d but got %d", shape.TriangleShape, shapeType)
 }
 
@@ -46,7 +46,7 @@ func TestSquareCalculation(t *testing.T) {
 
 func TestSquareShapeType(t *testing.T) {
 	square := shape.NewSquare(0)
-	shapeType := square.Type()
+	shapeType := square.SquareType()
 	assert.Equalf(t, shapeType, shape.SquareShape, "Expected %d but got %d", shape.SquareShape, shapeType)
 }
 
@@ -64,6 +64,6 @@ func TestRectangleCalculation(t *testing.T) {
 
 func TestRectangleShapeType(t *testing.T) {
 	rectangle := shape.NewRectangle(0, 0)
-	shapeType := rectangle.Type()
+	shapeType := rectangle.RectangleType()
 	assert.Equalf(t, shapeType, shape.RectangleShape, "Expected %d but got %d", shape.RectangleShape, shapeType)
 }

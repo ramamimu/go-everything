@@ -16,7 +16,17 @@ func (m *mockShape2D) Area() float32 {
 	return float32(args.Int(0))
 }
 
-func (m *mockShape2D) Type() int {
+func (m *mockShape2D) TriangleType() int {
+	args := m.Called()
+	return args.Int(0)
+}
+
+func (m *mockShape2D) SquareType() int {
+	args := m.Called()
+	return args.Int(0)
+}
+
+func (m *mockShape2D) RectangleType() int {
 	args := m.Called()
 	return args.Int(0)
 }
