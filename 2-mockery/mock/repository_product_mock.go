@@ -2,7 +2,7 @@
 // Source: 2-mockery/product/product.go
 
 // Package mock_product is a generated GoMock package.
-package mock_product
+package mocker
 
 import (
 	context "context"

@@ -1,0 +1,4 @@
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+
+mockgen -source=2-mockery/repository/cache.go -destination=2-mockery/mock/redis_cacher_mock.go -package=mock
+
