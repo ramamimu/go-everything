@@ -2,6 +2,10 @@ package shape
 
 type Shape2D interface {
 	Area() float32
+}
+
+type TriangleShape2D interface {
+	Shape2D
 	Type() int
 }
 
@@ -18,11 +22,16 @@ func (t Triangle) Type() int {
 	return TriangleShape
 }
 
-func NewTriangle(base float32, height float32) Shape2D {
+func NewTriangle(base float32, height float32) TriangleShape2D {
 	return Triangle{
 		base:   base,
 		height: height,
 	}
+}
+
+type SquareShape2D interface {
+	Shape2D
+	Type() int
 }
 
 type Square struct {
@@ -37,10 +46,15 @@ func (s Square) Type() int {
 	return SquareShape
 }
 
-func NewSquare(sides float32) Shape2D {
+func NewSquare(sides float32) SquareShape2D {
 	return Square{
 		sides: sides,
 	}
+}
+
+type RectangleShape2D interface {
+	Shape2D
+	Type() int
 }
 
 type Rectangle struct {
@@ -56,7 +70,7 @@ func (r Rectangle) Type() int {
 	return RectangleShape
 }
 
-func NewRectangle(side1 float32, side2 float32) Shape2D {
+func NewRectangle(side1 float32, side2 float32) RectangleShape2D {
 	return Rectangle{
 		sides1: side1,
 		sides2: side2,

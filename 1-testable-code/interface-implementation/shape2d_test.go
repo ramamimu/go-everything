@@ -12,7 +12,7 @@ func TestTriangleDataType(t *testing.T) {
 
 	triangle, ok := triangleShape.(shape.Triangle)
 	if !ok {
-		t.Fatalf("Expected type shape.Triangle but got %T", triangle)
+		t.Fatalf("Expected type shape.TriangleShape2D but got %T", triangle)
 	}
 }
 
