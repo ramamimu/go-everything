@@ -1,0 +1,16 @@
+services:
+  postgresdb:
+    container_name: postgres-db
+    image: postgres:16.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shop
+  rediscache:
+    container_name: redis-cache
+    image: redis/redis-stack:latest
+    ports:
+      - 6379:6379
+      - 8001:8001

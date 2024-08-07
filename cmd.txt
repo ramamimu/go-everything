@@ -2,3 +2,4 @@ docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:lat
 
 mockgen -source=2-mockery/repository/cache.go -destination=2-mockery/mock/redis_cacher_mock.go -package=mock
 
+db using SQLC: https://github.com/sqlc-dev/sqlc

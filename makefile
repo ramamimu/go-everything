@@ -6,3 +6,9 @@ test-profiler:
 
 integration-test:
 	go test -v -cover ./...
+
+compose-up:
+	docker compose up -d
+
+compose-down:
+	docker compose down
