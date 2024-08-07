@@ -7,6 +7,7 @@ require (
 	github.com/golang/mock v1.6.0
 	github.com/redis/go-redis/v9 v9.6.1
 	github.com/stretchr/testify v1.9.0
+	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 )
 
 require (
