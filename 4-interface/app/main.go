@@ -6,6 +6,8 @@ import (
 	"io"
 	"math/rand/v2"
 	"net/http"
+
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 type Person struct {
@@ -14,6 +16,7 @@ type Person struct {
 }
 
 func main() {
+	http.Handle("/metrics", promhttp.Handler())
 	http.HandleFunc("/ping", func(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "pong")
 	})
@@ -52,7 +55,7 @@ func main() {
 		}
 	})
 
-	err := http.ListenAndServe(":9090", nil)
+	err := http.ListenAndServe(":9001", nil)
 	if err != nil {
 		panic("failed to create server")
 	}
