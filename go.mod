@@ -21,8 +21,12 @@ require (
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/common v0.48.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
+	github.com/samber/lo v1.44.0 // indirect
+	github.com/samber/slog-common v0.17.0 // indirect
+	github.com/samber/slog-logstash/v2 v2.6.0 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
 	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/text v0.16.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
