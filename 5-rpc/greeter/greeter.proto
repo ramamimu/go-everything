@@ -12,7 +12,7 @@ service Greeter {
   // Sends another greeting
   rpc SayHelloAgain (HelloRequest) returns (stream HelloReply) {}
   rpc SayHelloReverse (stream HelloRequest) returns (HelloReply) {}
-  rpc SayHelloBidirectional (stream HelloRequest) returns (HelloReply) {}
+  rpc SayHelloBidirectional (stream HelloRequest) returns (stream HelloReply) {}
 }
 
 // The request message containing the user's name.

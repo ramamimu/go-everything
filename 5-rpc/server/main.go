@@ -23,16 +23,11 @@ func (s *greet) SayHello(ctx context.Context, in *greeter.HelloRequest) (*greete
 
 func (s *greet) SayHelloAgain(req *greeter.HelloRequest, stream greeter.Greeter_SayHelloAgainServer) error {
 	log.Printf("Received in many:1 : %v", req.GetName())
-	if err := stream.Send(&greeter.HelloReply{Message: "This is coming from server's stream heheheu"}); err != nil {
-		return err
-	}
-	time.Sleep(500 * time.Millisecond)
-	if err := stream.Send(&greeter.HelloReply{Message: "This is coming from server's stream heheheu"}); err != nil {
-		return err
-	}
-	time.Sleep(1 * time.Second)
-	if err := stream.Send(&greeter.HelloReply{Message: "This is coming from server's stream heheheu"}); err != nil {
-		return err
+	for i := 0; i < 3; i++ {
+		if err := stream.Send(&greeter.HelloReply{Message: "This is coming from server's stream greeter.SayHelloAgain"}); err != nil {
+			return err
+		}
+		time.Sleep(500 * time.Millisecond)
 	}
 	return nil
 }
@@ -40,15 +35,38 @@ func (s *greet) SayHelloAgain(req *greeter.HelloRequest, stream greeter.Greeter_
 func (s *greet) SayHelloReverse(stream greeter.Greeter_SayHelloReverseServer) error {
 	counter := 0
 	for {
-		point, err := stream.Recv()
+		clientStream, err := stream.Recv()
 		counter++
 		if err == io.EOF {
 			return stream.SendAndClose(&greeter.HelloReply{Message: "Already get all data from 1:many"})
 		}
-		log.Printf("received from client in 1:many : %v\n has sent %d time", point.Name, counter)
+		log.Printf("received from client in 1:many : %v\n has sent %d time", clientStream.Name, counter)
 
 		if err != nil {
 			return err
+		}
+	}
+}
+
+func (s *greet) SayHelloBidirectional(stream greeter.Greeter_SayHelloBidirectionalServer) error {
+	counter := 0
+	for {
+		clientStream, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
+
+		if err != nil {
+			return err
+		}
+
+		log.Printf("received from client in many:many : %v\n has sent %d time", clientStream.Name, counter)
+		for i := 0; i < 8; i++ {
+			counter++
+			if err := stream.Send(&greeter.HelloReply{Message: fmt.Sprintf("hi from server, message order: %d", counter)}); err != nil {
+				return err
+			}
+			time.Sleep(500 * time.Millisecond)
 		}
 	}
 }
