@@ -13,3 +13,7 @@ func TestFetchWithContext(t *testing.T) {
 	assert.Containsf(t, msg, "succeed-hello world", "expected 'succeed-hello world' but got '%s'", msg)
 	assert.NoError(t, err, "expected no error")
 }
+
+func TestFetchWithMultipleCallAPI(t *testing.T) {
+	contexts.FetchSomeParties(context.Background())
+}

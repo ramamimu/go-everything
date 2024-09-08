@@ -43,8 +43,7 @@ func ChannelWithTimeout() {
 	ch := make(chan string)
 
 	sendData := func(msg string) {
-		randomizer := rand.New(rand.NewSource(uint64(time.Now().Unix())))
-		time.Sleep(time.Duration(randomizer.Int()%10+1) * time.Second)
+		time.Sleep(5000 * time.Millisecond)
 		ch <- msg
 	}
 
@@ -66,6 +65,8 @@ func ChannelWithTimeout() {
 	}
 }
 
+// this is the best architecture
+// called fan in and fan out
 func ChannelGroup() {
 	var wg sync.WaitGroup
 	wg.Add(5)
@@ -75,8 +76,9 @@ func ChannelGroup() {
 	fmt.Println("start")
 
 	sendData := func(msg string) {
-		randomizer := rand.New(rand.NewSource(uint64(time.Now().Unix())))
-		time.Sleep(time.Duration(randomizer.Int()%10+1) * time.Second)
+		duration := time.Duration(rand.Intn(5)+1) * time.Second
+		fmt.Println(duration)
+		time.Sleep(duration)
 		ch <- msg
 	}
 
