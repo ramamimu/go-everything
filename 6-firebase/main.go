@@ -2,7 +2,6 @@ package firebase
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	firebase "firebase.google.com/go/v4"
@@ -13,7 +12,7 @@ func main() {
 	opt := option.WithCredentialsFile("../firebase.key.json")
 	app, err := firebase.NewApp(context.Background(), nil, opt)
 	if err != nil {
-		fmt.Errorf("error initializing app: %v", err)
+		log.Fatalf("error initializing app: %v", err)
 	}
 
 	ctx := context.Background()
