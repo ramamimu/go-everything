@@ -4,6 +4,22 @@ services:
     container_name: prometheus
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
     network_mode: host
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+  grafana-prometheus:
+    image: grafana/grafana:10.0.0
+    container_name: grafana-prometheus
+    network_mode: host
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    volumes:
+      - grafana_prometheus:/var/lib/grafana
+
+volumes:
+  prometheus_data:
+  grafana_prometheus:

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -20,7 +21,7 @@ func main() {
 
 	responseTime := prometheus.NewHistogramVec(
 		prometheus.HistogramOpts{
-			Name:    "myapp_http_response_time_seconds",
+			Name:    "myapp_http_response_time_seconds_test",
 			Help:    "Response time in seconds",
 			Buckets: prometheus.DefBuckets,
 		},
@@ -46,6 +47,7 @@ func main() {
 	})
 
 	// Start the server
+	fmt.Println("Service is Running on Port 8088")
 	err := http.ListenAndServe(":8088", nil)
 	if err != nil {
 		log.Fatal(err)
