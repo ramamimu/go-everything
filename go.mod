@@ -5,7 +5,6 @@ go 1.22.5
 require (
 	firebase.google.com/go/v4 v4.15.0
 	github.com/go-redis/redismock/v9 v9.2.0
-	github.com/go-sql-driver/mysql v1.8.1
 	github.com/golang/mock v1.6.0
 	github.com/jackc/pgx/v5 v5.7.1
 	github.com/olivere/elastic/v7 v7.0.4
@@ -28,7 +27,6 @@ require (
 	cloud.google.com/go/iam v1.1.7 // indirect
 	cloud.google.com/go/longrunning v0.5.5 // indirect
 	cloud.google.com/go/storage v1.40.0 // indirect
-	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/MicahParks/keyfunc v1.9.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
