@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func threeSum(nums []int) [][]int {
+func threeSum_Copilot(nums []int) [][]int {
 	result := [][]int{}
 	n := len(nums)
 	if n < 3 {
@@ -72,9 +72,9 @@ func TestThreeSum(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := threeSum(test.nums)
-		if len(result) != len(test.expect) {
-			t.Errorf("threeSum(%v) = %v; want %v", test.nums, result, test.expect)
+		resultCopilot := threeSum_Copilot(test.nums)
+		if len(resultCopilot) != len(test.expect) {
+			t.Errorf("threeSum(%v) = %v; want %v", test.nums, resultCopilot, test.expect)
 			continue
 		}
 	}

@@ -3,37 +3,23 @@ package leetcode_test
 import "testing"
 
 func longestCommonPrefix(strs []string) string {
-    commonPrefix := ""
-	for i := range strs{
-		if i == 0 {
-			commonPrefix = strs[i]
-			continue 
-		}
-
-		// pop characters from commonPrefix until it matches the start of strs[i]
-		currentStr := strs[i]
-		if len(commonPrefix) > len(currentStr) {
-			commonPrefix = commonPrefix[:len(currentStr)]
-		} else {
-			currentStr = currentStr[:len(commonPrefix)]
-		} 
-
-		for  j := range currentStr {
-			if commonPrefix[j] != currentStr[j] {
-				commonPrefix = commonPrefix[:j]
-				break
-			}
-		}
-
-		if commonPrefix == "" {
-			return ""
-		}
+	if len(strs) == 0 {
+		return ""
 	}
-	return commonPrefix
+
+	prefix := strs[0]
+	for i := range strs {
+		j := 0
+		for j < len(prefix) && j < len(strs[i]) && prefix[j] == strs[i][j] {
+			j++
+		}
+		prefix = prefix[:j]
+	}
+	return prefix
 }
 
 func longestCommonPrefix_v2(strs []string) string {
-		if len(strs) == 0 {
+	if len(strs) == 0 {
 		return ""
 	}
 
@@ -70,7 +56,7 @@ func TestLongestCommonPrefix(t *testing.T) {
 		if result != test.expect {
 			t.Errorf("longestCommonPrefix(%v) = %q; want %q", test.strs, result, test.expect)
 		}
-	}	
+	}
 
 	for _, test := range tests {
 		result := longestCommonPrefix_v2(test.strs)
